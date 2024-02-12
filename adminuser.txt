@@ -1,3 +1,0 @@
-superuser 
-name- son
-password- 12345678ab
