@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{%block title%}{% endblock%}Djangochat</title>
+        <style>
+            .messages{
+                height: 400px;
+                overflow-y: auto;
+            }
+            .form-group{
+            place-items: center;
+            display:grid; 
+            }
+            form{
+                width:auto;
+            }
+            #box{
+                float:left;
+                background:lightblue;
+            
+            }
+        </style>
+    <!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS v5.2.1 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> 
+</head>
+    <body style="background-color: aqua;">
+        <div class="container text-center">
+            <i class="bi bi-chat" style="font-size: 6rem; color:blue;"></i>
+        <h1><span class="badge rounded-pill  bg-info text-dark"><a href="/" class="text-xl">ChatApp</a></span></h1>
+            
+    </div>
+
+     
+            
+                
+                <ul class="nav nav-tabs justify-content-center">
+                    {% if request.user.is_authenticated %}
+                    <span class="badge text-bg-light">
+                    <li class="nav-item"><a class="nav-link" href = "/rooms/" >Rooms</a></li>
+                    </span>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="badge text-bg-light">
+                    <li class="nav-item"><a class="nav-link"href = "/logout/" >Logout</a></li> 
+                    </span>
+                    {% else %}
+                    <span class="badge text-bg-light">
+                    <li class="nav-item"><a class="nav-link" href = "/login/" >Login</a></li>
+                    </span>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="badge text-bg-light">
+                    <li class="nav-item"><a class="nav-link" href = "/signup/" >Signup</a></li>
+                    </span>
+                    {% endif %}
+                </ul>
+              
+        {% block content %}
+        {% endblock %}
+ 
+        {% block scripts %}
+        {% endblock %}
+    <!-- Bootstrap JavaScript Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+</script>
+    </body>
+
+</html>
