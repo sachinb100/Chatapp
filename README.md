@@ -2,7 +2,7 @@
 It is a chat application that allows multiple users to chat in real time.
 
 
-Users can signup and login to enter in chat room by selecting  a group name and then multiple users can chat.
+  • Users can signup and login to enter in chat room by selecting  a group name and then multiple users can chat.
 
 ## Tech stack
 
@@ -21,6 +21,18 @@ Go to the project directory
 ```bash
   cd Chatapp
 ```
+
+Make migrations in database
+ ```bash
+python manage.py makemigrations
+```
+
+Migrate to database
+
+```bash
+python manage.py migrate
+```
+
 
 Run the project(in terminal)
 
