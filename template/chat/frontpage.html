@@ -2,8 +2,16 @@
 {% block title %}Welcome | {% endblock %}
 {% block content %}
 <div class="container">    
-    
+
         <h1 style="border:green; border-width: 5px; border-style: dashed;text-align: center;">Chat with multiple users in a group</h1>
-    
+        {% if messages %}
+        <div class="messages">
+        {% for message in messages %}
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
 </div>
 {% endblock %}

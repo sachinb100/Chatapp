@@ -5,34 +5,34 @@
         <h1 style="text-align:center;">Login</h1>
     </div>
 
-    <form method="post" action=" ">
+    <form method="post" novalidate>
         {% csrf_token %}
-        <div class="container">
         <div class="form-group">
-            <label for="uname">Username</label>
-            <input type="text" class="form-control" id="uname" placeholder="Enter name" name="username">
-        </div><br>
-        <div class="form-group">
-            <label for="epassword">Password</label>
-            <input type="password" class="form-control" id="epassword" placeholder="Enter password" name="password">
-        </div><br>
+            
+        {{ form.as_p }}
+
+
         {% if form.errors %}
             {% for field in form %}
                 {% for errors in field.errors %}
                     <div class="alert alert-danger" role="alert">
-                        <p> Please enter {{ field.name }}</p>
+                        <p> {{ field.name }}</p>
                         <p> {{ errors|escape }} </p>
+                        
                     </div>
                 {% endfor %}
             {% endfor %}
         {% endif %}
-        </div>
-        <div class="form-group">
-            <br> <button type="submit"  class="btn btn-primary">Submit</button>
+        
+        <input type="submit" class="btn btn-info" value="Login">
         </div>
         <div>
             <br> <p style="text-align: center;">Not a user? <a  href="/signup/">Signup</a></p>
-         </div>
+        </div>
+        
+            
+    
+
         </form>
     
 {% endblock %}
